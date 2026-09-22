@@ -10,7 +10,7 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { db } from "../firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, collection, getDocs } from "firebase/firestore";
 import Swal from 'sweetalert2';
 
 // Memoized Components
@@ -127,16 +127,21 @@ const StatCard = memo(
 
 const AboutPage = () => {
   // Memoized calculations
-  const { totalProjects, totalCertificates } = useMemo(() => {
-  const storedProjects = JSON.parse(localStorage.getItem("projects") || "[]");
-  const storedCertificates = JSON.parse(
-    localStorage.getItem("certificates") || "[]"
-  );
+  const [totalProjects, setTotalProjects] = useState(0);
+  const [totalCertificates, setTotalCertificates] = useState(0);
 
-  return {
-    totalProjects: storedProjects.length,
-    totalCertificates: storedCertificates.length,
-  };
+  useEffect(() => {
+    const fetchCounts = async () => {
+      try {
+        const projectsSnap = await getDocs(collection(db, "projetos"));
+        const certificatesSnap = await getDocs(collection(db, "certificados"));
+        setTotalProjects(projectsSnap.size);
+        setTotalCertificates(certificatesSnap.size);
+      } catch (error) {
+        console.log("Erro ao buscar contagens:", error);
+      }
+    };
+    fetchCounts();
   }, []);
 
   // Optimized AOS initialization
