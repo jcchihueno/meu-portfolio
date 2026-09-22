@@ -15,7 +15,7 @@ import "aos/dist/aos.css";
 
 const MainTitle = memo(() => (
   <div className="space-y-2" data-aos="fade-up" data-aos-delay="600">
-    <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-bold tracking-tight">
+    <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight">
       <span className="relative inline-block whitespace-nowrap">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#3b82f6] to-[#06b6d4] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-white via-blue-100 to-cyan-200 bg-clip-text text-transparent">
@@ -152,13 +152,13 @@ const Home = () => {
   const ANIMATIONS = [
     {
       id: "programming",
-      src: "https://lottie.host/58753882-bb6a-49f5-a2c0-950eda1e135a/NLbpVqGegK.lottie",
+      src: "https://lottie.host/acdb49b2-b6d1-4ab6-a7ba-d5e43af646e6/qPLkrovNCx.lottie",
       scaleBase: "scale-90",
       scaleHover: "scale-95 rotate-1",
     },
     {
       id: "design",
-      src: "https://lottie.host/fd61c148-7c40-4873-bf43-516757c7e708/m5xhH71Y89.lottie",
+      src: "https://lottie.host/7963e717-4931-4530-8547-daf582d1aa92/3O6tqMyz49.lottie",
       scaleBase: "scale-90",
       scaleHover: "scale-95 rotate-1",
     },
